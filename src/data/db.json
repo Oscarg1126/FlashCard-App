@@ -9,6 +9,11 @@
       "name": "React Router",
       "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 2
+    },
+    {
+      "name": "React Features",
+      "description": "Questions about the main features of React.",
+      "id": 3
     }
   ],
   "cards": [
@@ -43,11 +48,22 @@
       "id": 5
     },
     {
-      "cards": [],
-      "front": "b",
-      "back": "b",
-      "deckId": 1,
+      "front": "What is JSX?",
+      "back": "JSX is a syntax extension of JavaScript. It is used with React to describe what the user interface should look like.\n",
+      "deckId": 3,
+      "id": 6
+    },
+    {
+      "front": "Can web browsers read JSX directly? \n",
+      "back": "Web browsers cannot read JSX directly. This is because they are built to only read regular JS objects and JSX is not a regular JavaScript object.",
+      "deckId": 3,
       "id": 7
+    },
+    {
+      "front": "What is an event in React?",
+      "back": "An event is an action that a user or system may trigger, such as pressing a key, a mouse click, etc.",
+      "deckId": 3,
+      "id": 8
     }
   ]
 }

@@ -12,33 +12,31 @@ function CardList({ cards }) {
       "Restart cards? Click cancel to return to the home page."
     );
     if (result === true) {
-      debugger;
-      console.log(cards);
       setCurrentCard(0);
     } else {
-      history.go("/");
+      history.push("/");
     }
   };
 
   function handleNext() {
     if (currentCard + 1 === cards.length) {
       handleLast();
+      return
     }
     setCurrentCard(currentCard + 1);
-    setFrontSide(()=> !frontSide)
+    setFrontSide(() => !frontSide);
   }
 
-  const flipHandler= () => {
-      setFrontSide(()=> !frontSide)
-  }
-
+  const flipHandler = () => {
+    setFrontSide(() => !frontSide);
+  };
   if (!cards) {
     return null;
   }
 
   if (cards.length > 2) {
     return (
-      <ul>
+      <ul className="deck-cards">
         {cards && (
           <li>
             <div className="card" key={cards[currentCard].id}>
@@ -46,18 +44,19 @@ function CardList({ cards }) {
                 <h5 className="card-title">
                   Card {currentCard + 1} of {cards.length}
                 </h5>
-                <p className="card-text">{frontSide ? cards[currentCard].front : cards[currentCard].back}</p>
+                <p className="card-text">
+                  {frontSide
+                    ? cards[currentCard].front
+                    : cards[currentCard].back}
+                </p>
                 <button className="btn btn-secondary" onClick={flipHandler}>
                   Flip
                 </button>
-                {frontSide ? null : 
-                <button
-                  className="btn btn-secondary"
-                  onClick={handleNext}
-                >
-                  Next
-                </button>
-                    }
+                {frontSide ? null : (
+                  <button className="btn btn-primary" onClick={handleNext}>
+                    Next
+                  </button>
+                )}
               </div>
             </div>
           </li>
